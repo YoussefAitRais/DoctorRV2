@@ -7,6 +7,7 @@ public class User  {
     private String email;
     private String phone;
     private String address;
+    private String role;
 
     public User(String name, String password, String email, String phone, String address) {
         this.name = name;
@@ -52,6 +53,12 @@ public class User  {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
 
 }

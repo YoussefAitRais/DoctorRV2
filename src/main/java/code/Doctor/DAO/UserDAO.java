@@ -27,7 +27,7 @@ public class UserDAO {
     }
 
     public void addUser(User user) throws SQLException {
-        String query = "INSERT INTO users (name, password, email, phone, address) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO users (name, password, email, phone, address) VALUES ( ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, user.getName());
@@ -35,6 +35,7 @@ public class UserDAO {
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getPhone());
             stmt.setString(5, user.getAddress());
+
             stmt.executeUpdate();
         }
     }
