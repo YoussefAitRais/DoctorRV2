@@ -5,6 +5,7 @@ import code.Doctor.DAO.UserDAO;
 import code.Doctor.Model.User;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,14 +23,15 @@ public class UserServlet extends HttpServlet {
         String address = request.getParameter("address");
 
         User user = new User(name, password, email, phone, address);
-        UserDAO userDAO = new UserDAO(DatabaseConnection.getConnection());
+        UserDAO userDAO = null;
+        userDAO = new UserDAO(DatabaseConnection.getConnection());
 
         try {
             userDAO.saveUser(user);
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("index.jsp");
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("index.jsp");
         }
     }
 }
