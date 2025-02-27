@@ -32,14 +32,14 @@ public class LoginServlet extends HttpServlet {
                 // Successful login - Create a session
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                response.sendRedirect("dashboard.jsp");
+                response.sendRedirect("./dashboard.jsp");
             } else {
                 // Login failed - Redirect back to login page
                 response.sendRedirect("login.jsp?error=1");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("login.jsp?error=1");
+            response.sendRedirect("./login.jsp?error=1");
         }
     }
 }
