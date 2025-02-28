@@ -25,15 +25,9 @@ public class UserServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String role = request.getParameter("role"); // Get the role (patient or doctor)
-        String specialty = request.getParameter("specialty"); // Get specialty (for doctors only)
 
-        // If user is not a doctor, set specialty to NULL
-        if (!"doctor".equals(role)) {
-            specialty = null;
-        }
-
-        // Create a new User object with role and specialty
-        User user = new User(name, password, email, phone, address, role, specialty);
+        // Create a new User object with role
+        User user = new User(name, password, email, phone, address, role);
 
         // Establish DB connection and save user
         Connection connection = DatabaseConnection.getConnection();

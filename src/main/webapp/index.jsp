@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
-
 <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
     <h2 class="text-2xl font-bold text-center mb-6">Create an Account</h2>
     <form action="register" method="post" class="space-y-4">
@@ -45,16 +45,10 @@
         <!-- Role Selection -->
         <div>
             <label class="block text-gray-700">Select Role</label>
-            <select name="role" id="roleSelect" class="w-full p-2 border border-gray-300 rounded bg-white" onchange="toggleSpecialty()">
+            <select name="role" class="w-full p-2 border border-gray-300 rounded bg-white">
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
             </select>
-        </div>
-
-        <!-- Specialty (Only for Doctor) -->
-        <div id="specialtyField" class="hidden">
-            <label class="block text-gray-700">Specialty</label>
-            <input type="text" name="specialty" id="specialtyInput" class="w-full p-2 border border-gray-300 rounded">
         </div>
 
         <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
@@ -66,20 +60,5 @@
         <a href="login.jsp" class="text-blue-500 hover:underline">Login here</a>
     </p>
 </div>
-
-<script>
-    function toggleSpecialty() {
-        let role = document.getElementById("roleSelect").value;
-        let specialtyField = document.getElementById("specialtyField");
-        if (role === "doctor") {
-            specialtyField.classList.remove("hidden");
-            document.getElementById("specialtyInput").required = true;
-        } else {
-            specialtyField.classList.add("hidden");
-            document.getElementById("specialtyInput").required = false;
-        }
-    }
-</script>
-
 </body>
 </html>
