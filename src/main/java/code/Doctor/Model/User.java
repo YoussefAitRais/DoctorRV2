@@ -15,10 +15,19 @@ public class User  {
         this.email = email;
         this.phone = phone;
         this.address = address;
+        this.role = "user";
     }
 
     public User() {
 
+    }
+
+
+
+    public User(String name, String password, String email, String phone, String address, Object o, String role) {
+    }
+
+    public User(String name, String password, String email, String phone, String address, String role) {
     }
 
     public String getName() {
